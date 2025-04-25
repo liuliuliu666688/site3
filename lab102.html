@@ -1,0 +1,25 @@
+// Sample implementation approach for balloon modifications
+
+// 1. Restricted color palette
+const balloonColors = ['red', 'orange', 'yellow', 'green', 'black', 'blue', 'purple'];
+
+// 2. Growing diameter as balloons rise
+function updateBalloon(balloon) {
+    // Increase diameter based on altitude
+    const currentSize = parseFloat(balloon.style.width);
+    const newSize = currentSize * 1.01; // Growth factor
+    balloon.style.width = newSize + 'px';
+    balloon.style.height = newSize + 'px';
+    
+    // 3. Burst condition (when reaching certain height)
+    if (parseInt(balloon.style.bottom) > burstHeight) {
+        burstBalloon(balloon);
+    }
+}
+
+// Burst animation function
+function burstBalloon(balloon) {
+    // Add bursting animation/effect
+    balloon.style.display = 'none';
+    // Or more elaborate animation with particles
+}
