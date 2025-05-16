@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML File Display</title>
+    <style>
+        #contentDisplay {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="htmlInput" accept=".html,.htm">
+    <div id="contentDisplay"></div>
+    
+    <script>
+        const htmlInput = document.getElementById('htmlInput');
+        const contentDisplay = document.getElementById('contentDisplay');
+        
+        htmlInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    contentDisplay.innerHTML = event.target.result;
+                };
+                reader.readAsText(file);
+            }
+        });
+    </script>
+</body>
+</html>
